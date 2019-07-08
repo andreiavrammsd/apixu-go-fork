@@ -58,6 +58,9 @@ func (a *apixu) Current(q string) (res *response.CurrentWeather, err error) {
 
 	p := url.Values{}
 	p.Set("q", q)
+	if a.config.Language != "" {
+		p.Set("lang", a.config.Language)
+	}
 
 	req := request{
 		method: "current",
@@ -80,6 +83,9 @@ func (a *apixu) Forecast(q string, days int, hour *int) (res *response.Forecast,
 	p.Set("days", strconv.Itoa(days))
 	if hour != nil {
 		p.Set("hour", strconv.Itoa(*hour))
+	}
+	if a.config.Language != "" {
+		p.Set("lang", a.config.Language)
 	}
 
 	req := request{
@@ -121,6 +127,9 @@ func (a *apixu) History(q string, since time.Time, until *time.Time) (res *respo
 	p.Set("dt", since.Format(historyDateFormat))
 	if until != nil {
 		p.Set("end_dt", until.Format(historyDateFormat))
+	}
+	if a.config.Language != "" {
+		p.Set("lang", a.config.Language)
 	}
 
 	req := request{

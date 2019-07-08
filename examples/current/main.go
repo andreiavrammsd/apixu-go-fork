@@ -12,7 +12,8 @@ import (
 
 func main() {
 	config := apixu.Config{
-		APIKey: os.Getenv("APIXUKEY"),
+		APIKey:   os.Getenv("APIXUKEY"),
+		Language: "es",
 	}
 
 	a, err := apixu.New(config)
