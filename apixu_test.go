@@ -87,7 +87,9 @@ func TestApixu_Current(t *testing.T) {
 	data := loadData(t, "current")
 
 	a := &apixu{
-		config: Config{},
+		config: Config{
+			Language: "en",
+		},
 		httpClient: &httpClientMock{
 			response: &http.Response{
 				StatusCode: http.StatusOK,
@@ -124,7 +126,9 @@ func TestApixu_Forecast(t *testing.T) {
 	data := loadData(t, "forecast")
 
 	a := &apixu{
-		config: Config{},
+		config: Config{
+			Language: "en",
+		},
 		httpClient: &httpClientMock{
 			response: &http.Response{
 				StatusCode: http.StatusOK,
@@ -199,7 +203,9 @@ func TestApixu_History(t *testing.T) {
 	data := loadData(t, "history")
 
 	a := &apixu{
-		config: Config{},
+		config: Config{
+			Language: "en",
+		},
 		httpClient: &httpClientMock{
 			response: &http.Response{
 				StatusCode: http.StatusOK,
